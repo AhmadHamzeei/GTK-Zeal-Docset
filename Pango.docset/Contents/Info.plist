@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+	<dict>
+		<key>CFBundleIdentifier</key>
+		<string>pango</string>
+		<key>CFBundleName</key>
+		<string>Pango</string>
+		<key>DocSetPlatformFamily</key>
+		<string>pango</string>
+	</dict>
+</plist>
