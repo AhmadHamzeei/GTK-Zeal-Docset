@@ -1,5 +1,5 @@
 # GTK-Zeal-Docset
-[GTK](http://www.gtk.org/) documentation for [Zeal](http://zealdocs.org/).
+[GTK](http://www.gtk.org/) documentation for [Zeal](http://zealdocs.org/)
 Tested with Ubuntu 14.04
 
 ## Screenshot:
@@ -18,6 +18,6 @@ Tested with Ubuntu 14.04
 git clone https://github.com/AhmadHamzeei/GTK-Zeal-Docset.git
 cd GTK-Zeal-Docset
 ./autogen.sh
-cp -r *.docset /home/ahmad/.local/share/Zeal/Zeal/docsets
+cp -r *.docset ~/.local/share/Zeal/Zeal/docsets
 ```
 
