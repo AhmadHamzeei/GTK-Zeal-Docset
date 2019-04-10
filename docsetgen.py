@@ -12,7 +12,8 @@ docsets = [{'folder':'GTK3',    'devhelp':'gtk3'},
            {'folder':'Cairo',   'devhelp':'cairo'},]
 
 types = {'enum':'Enum', 'function':'Function', 'macro':'Macro', 'property':'Property', 'constant':'Constant',
-         'signal':'Event', 'struct':'Struct', 'typedef':'Define', 'union':'Union', 'variable': 'Variable', 'method': 'Method'}
+         'signal':'Event', 'struct':'Struct', 'typedef':'Define', 'union':'Union', 'variable': 'Variable', 'method': 'Method',
+         'member': 'Field'}
 
 dbpath = '{0}.docset/Contents/Resources/docSet.dsidx'
 gzpath = '{0}.docset/Contents/Resources/Documents/{1}.devhelp2.gz'
