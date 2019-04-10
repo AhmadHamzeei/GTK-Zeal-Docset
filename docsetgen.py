@@ -12,7 +12,8 @@ docsets = [{'folder':'GTK3',    'devhelp':'gtk3'},
            {'folder':'Cairo',   'devhelp':'cairo'},]
 
 types = {'enum':'Enum', 'function':'Function', 'macro':'Macro', 'property':'Property', 'constant':'Constant',
-         'signal':'Event', 'struct':'Struct', 'typedef':'Define', 'union':'Union', 'variable': 'Variable', 'method': 'Method'}
+         'signal':'Event', 'struct':'Struct', 'typedef':'Define', 'union':'Union', 'variable': 'Variable', 'method': 'Method',
+         'member': 'Field'}
 
 dbpath = '{0}.docset/Contents/Resources/docSet.dsidx'
 gzpath = '{0}.docset/Contents/Resources/Documents/{1}.devhelp2.gz'
@@ -43,7 +44,16 @@ for docset in docsets:
 		
 	keywords = book.findall('.//{http://www.devhelp.net/book}keyword')
 	for keyword in keywords:
-		cur.execute(insertsql, (keyword.get('name'), types[keyword.get('type')] if keyword.get('type') else 'Section', keyword.get('link')))
+		entry_name = keyword.get('name')
+		if keyword.get('type'):
+			try:
+				entry_type = types[keyword.get('type')]
+			except KeyError as e:
+				print('Warning: ' + str(e) + ' is not a known type, defaulting to \'Section\'')
+				print('         to fix, add ' + str(e) + ' to the types dict with a value from https://kapeli.com/docsets#supportedentrytypes')
+				entry_type = 'Section'
+		entry_link = keyword.get('link')
+		cur.execute(insertsql, (entry_name, entry_type, entry_link))
 		
 	db.commit()
 	db.close()
